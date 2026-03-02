@@ -33,5 +33,5 @@ jobs:
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
             set -e
             cd front/front
-            npm -v
+            sudo npm -v
           "
