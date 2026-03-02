@@ -32,9 +32,5 @@ jobs:
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
             set -e
-            cd front/front
-            git pull origin main
-            npm install
-            npm run build
-            pm2 restart front
+            ls
           "
