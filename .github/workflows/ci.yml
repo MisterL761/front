@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 20
-      - run: cd front && npm install
-      - run: cd front && npm run build
+      - run: cd back && npm install
+      - run: cd back && npm run build
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -34,9 +34,7 @@ jobs:
             export NVM_DIR=\$HOME/.nvm
             [ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"
             set -e
-            cd front/front
+            cd back/back
             git pull origin main
-            npm install
-            npm run build
-            pm2 restart front
+            pm2 restart api
           "
