@@ -12,7 +12,7 @@ function App() {
 
   async function fetchTasks() {
     try {
-      const response = await fetch("https://api.lucas.abecedaire-studio.com");
+      const response = await fetch("https://api.lucas.abecedaire-studio.com/tasks");
       if (!response.ok) throw new Error("Erreur serveur");
       const data = await response.json();
       setTasks(data);
@@ -29,7 +29,7 @@ function App() {
     if (!newTitle.trim()) return;
 
     try {
-      const response = await fetch("https://api.lucas.abecedaire-studio.com", {
+      const response = await fetch("https://api.lucas.abecedaire-studio.com/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: newTitle }),
