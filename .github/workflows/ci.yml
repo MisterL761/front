@@ -35,5 +35,8 @@ jobs:
             [ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"
             set -e
             cd front/front
-            node -v
+            git pull origin main
+            npm install
+            npm run build
+            pm2 restart front
           "
